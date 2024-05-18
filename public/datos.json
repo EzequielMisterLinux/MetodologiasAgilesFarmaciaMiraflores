@@ -1,0 +1,364 @@
+{
+  "tiendas": [
+    {
+      "id": 1,
+      "avatar": "",
+      "imagen": "https://i.ibb.co/fHCC8sM/image.png",
+      "nombre": "ElectroMart",
+      "descripción": "Tu destino para la última tecnología electrónica.",
+      "categoría": "Electrónica",
+      "productos": [
+        {
+          "id": 1,
+          "nombre": "Samsung S23 Ultra",
+          "descripción": "El último smartphone con cámara de alta resolución y procesador ultrarrápido.",
+          "precio": 699.99,
+          "imagen": "https://i.ibb.co/YLmGvw2/image.png"
+        },
+        {
+          "id": 2,
+          "nombre": "Auriculares inalámbricos Bluetooth",
+          "descripción": "Auriculares de alta calidad con cancelación de ruido activa.",
+          "precio": 129.99,
+          "imagen": "https://i.ibb.co/8cBV8fK/image.png"
+        },
+        {
+          "id": 3,
+          "nombre": "Smartwatch Fitness Tracker",
+          "descripción": "Seguimiento de actividad física avanzado y monitorización del sueño.",
+          "precio": 89.99,
+          "imagen": "https://i.ibb.co/GvdxTmR/image.png"
+        },
+        {
+          "id": 4,
+          "nombre": "TV LED 4K de 55 pulgadas",
+          "descripción": "Televisor LED con colores vivos y calidad de imagen excepcional.",
+          "precio": 799.99,
+          "imagen": "https://i.ibb.co/27mNNrG/image.png"
+        },
+        {
+          "id": 5,
+          "nombre": "Tablet Android HD",
+          "descripción": "Tablet con pantalla HD y procesador de cuatro núcleos.",
+          "precio": 199.99,
+          "imagen": "https://i.ibb.co/tpHzvgv/image.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "avatar": "",
+      "imagen": "https://i.ibb.co/ySC2RgV/image.png",
+      "nombre": "FashionHouse",
+      "descripción": "Tu destino de moda favorito con las últimas tendencias.",
+      "categoría": "Moda",
+      "productos": [
+        {
+          "id": 1,
+          "nombre": "Vestido Floral Maxi",
+          "descripción": "Vestido largo con estampado floral perfecto para el verano.",
+          "precio": 59.99,
+          "imagen": "https://i.ibb.co/mSsJyNT/image.png"
+        },
+        {
+          "id": 2,
+          "nombre": "Camiseta Básica de Algodón",
+          "descripción": "Camiseta de manga corta confeccionada en algodón suave.",
+          "precio": 19.99,
+          "imagen": "https://i.ibb.co/HrcKjxx/image.png"
+        },
+        {
+          "id": 3,
+          "nombre": "Jeans Skinny Fit",
+          "descripción": "Jeans ajustados que realzan tu figura.",
+          "precio": 49.99,
+          "imagen": "https://i.ibb.co/80hY22q/image.png"
+        },
+        {
+          "id": 4,
+          "nombre": "Zapatos de Tacón Alto",
+          "descripción": "Zapatos elegantes con tacón alto para ocasiones especiales.",
+          "precio": 79.99,
+          "imagen": "https://i.ibb.co/qnS5r5T/image.png"
+        },
+        {
+          "id": 5,
+          "nombre": "Bolso de Cuero Crossbody",
+          "descripción": "Bolso de mano versátil con correa ajustable para llevarlo cruzado.",
+          "precio": 99.99,
+          "imagen": "https://i.ibb.co/bdhtNJV/image.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "avatar": "",
+      "imagen": "https://i.ibb.co/ysWnPbX/image.png",
+      "nombre": "SportsWorld",
+      "descripción": "Encuentra todo lo que necesitas para mantenerte activo.",
+      "categoría": "Deportes",
+      "productos": [
+        {
+          "id": 1,
+          "nombre": "Balón de Fútbol Profesional",
+          "descripción": "Balón de fútbol de alta calidad para partidos profesionales.",
+          "precio": 29.99,
+          "imagen": "https://i.ibb.co/Fqvfkfp/image.png"
+        },
+        {
+          "id": 2,
+          "nombre": "Raqueta de Tenis Carbono",
+          "descripción": "Raqueta de tenis ligera y resistente para un juego potente.",
+          "precio": 149.99,
+          "imagen": "https://i.ibb.co/RBd2ZXM/image.png"
+        },
+        {
+          "id": 3,
+          "nombre": "Leggings Deportivos de Compresión",
+          "descripción": "Leggings que ofrecen soporte muscular y libertad de movimiento durante el entrenamiento.",
+          "precio": 39.99,
+          "imagen": "https://i.ibb.co/9tNFHN3/image.png"
+        },
+        {
+          "id": 4,
+          "nombre": "Botella de Agua Deportiva",
+          "descripción": "Botella de agua con diseño ergonómico y capacidad de 1 litro.",
+          "precio": 9.99,
+          "imagen": "https://i.ibb.co/Y2fGd8B/image.png"
+        },
+        {
+          "id": 5,
+          "nombre": "Cinta de Correr Plegable",
+          "descripción": "Cinta de correr con funciones de inclinación y monitorización del ritmo cardíaco.",
+          "precio": 999.99,
+          "imagen": "https://i.ibb.co/NVBtc8N/image.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "avatar": "",
+      "imagen": "https://i.ibb.co/kMWyLth/image.png",
+      "nombre": "BeautyGlam",
+      "descripción": "Explora nuestra selección de productos de belleza de alta calidad.",
+      "categoría": "Belleza",
+      "productos": [
+        {
+          "id": 1,
+          "nombre": "Paleta de Sombras de Ojos Nude",
+          "descripción": "Paleta de sombras de ojos con tonos neutros y mate para looks naturales.",
+          "precio": 29.99,
+          "imagen": "https://i.ibb.co/cNKw3jk/image.png"
+        },
+        {
+          "id": 2,
+          "nombre": "Base de Maquillaje de Larga Duración",
+          "descripción": "Base de maquillaje que ofrece cobertura total y acabado mate.",
+          "precio": 39.99,
+          "imagen": "https://i.ibb.co/hD8vY8X/image.png"
+        },
+        {
+          "id": 3,
+          "nombre": "Labial Líquido de Color Intenso",
+          "descripción": "Labial líquido de larga duración con colores vibrantes.",
+          "precio": 14.99,
+          "imagen": "https://i.ibb.co/prpXTvq/image.png"
+        },
+        {
+          "id": 4,
+          "nombre": "Máscara de Pestañas Voluminizadora",
+          "descripción": "Máscara de pestañas que proporciona volumen y longitud sin grumos.",
+          "precio": 9.99,
+          "imagen": "https://i.ibb.co/gZtQryq/image.png"
+        },
+        {
+          "id": 5,
+          "nombre": "Set de Brochas de Maquillaje Profesional",
+          "descripción": "Set de brochas de maquillaje suaves y resistentes para una aplicación precisa.",
+          "precio": 24.99,
+          "imagen": "https://i.ibb.co/3R40HyL/image.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "avatar": "",
+      "imagen": "https://i.ibb.co/cgjsLzv/image.png",
+      "nombre": "Bookworm",
+      "descripción": "Descubre una amplia selección de libros para todos los gustos.",
+      "categoría": "Libros",
+      "productos": [
+        {
+          "id": 1,
+          "nombre": "Bestseller del New York Times: Ficción",
+          "descripción": "Últimas novelas de éxito que no puedes perderte.",
+          "precio": 19.99,
+          "imagen": "https://i.ibb.co/dGPZvC2/image.png"
+        },
+        {
+          "id": 2,
+          "nombre": "Libro de Cocina: Recetas Saludables",
+          "descripción": "Colección de recetas fáciles y saludables para una alimentación equilibrada.",
+          "precio": 29.99,
+          "imagen": "https://i.ibb.co/W3JW4zR/image.png"
+        },
+        {
+          "id": 3,
+          "nombre": "Libro de Fotografía: Paisajes Naturales",
+          "descripción": "Explora impresionantes paisajes capturados por fotógrafos profesionales.",
+          "precio": 39.99,
+          "imagen": "https://i.ibb.co/7CTLB5t/image.png"
+        },
+        {
+          "id": 4,
+          "nombre": "Libro de Historia: Civilizaciones Antiguas",
+          "descripción": "Viaja en el tiempo y descubre las grandes civilizaciones de la antigüedad.",
+          "precio": 24.99,
+          "imagen": "https://i.ibb.co/z5gnZH5/image.png"
+        },
+        {
+          "id": 5,
+          "nombre": "Libro Infantil: Cuentos Clásicos",
+          "descripción": "Cuentos atemporales que entretienen y educan a los más pequeños.",
+          "precio": 14.99,
+          "imagen": "https://i.ibb.co/yVy5ts2/image.png"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "avatar": "",
+      "imagen": "https://i.ibb.co/D50108q/image.png",
+      "nombre": "HomeStyle",
+      "descripción": "Encuentra todo lo necesario para decorar tu hogar con estilo.",
+      "categoría": "Hogar y Decoración",
+      "productos": [
+        {
+          "id": 1,
+          "nombre": "Juego de Sábanas de Algodón",
+          "descripción": "Sábanas suaves y cómodas para un descanso reparador.",
+          "precio": 49.99,
+          "imagen": "https://i.ibb.co/bdXFCWt/image.png"
+        },
+        {
+          "id": 2,
+          "nombre": "Jarrón de Cerámica Decorativo",
+          "descripción": "Jarrón elegante que añade un toque de sofisticación a cualquier espacio.",
+          "precio": 34.99,
+          "imagen": "https://i.ibb.co/Wkc3n1P/image.png"
+        },
+        {
+          "id": 3,
+          "nombre": "Espejo de Pared con Marco de Madera",
+          "descripción": "Espejo grande con marco de madera maciza ideal para el dormitorio o el pasillo.",
+          "precio": 79.99,
+          "imagen": "https://i.ibb.co/S5X0xTw/image.png"
+        },
+        {
+          "id": 4,
+          "nombre": "Lámpara de Pie Moderna",
+          "descripción": "Lámpara de pie con diseño contemporáneo que ilumina tu hogar con estilo.",
+          "precio": 129.99,
+          "imagen": "https://i.ibb.co/mG2FK8q/image.png"
+        },
+        {
+          "id": 5,
+          "nombre": "Cojines Decorativos de Terciopelo",
+          "descripción": "Cojines suaves y esponjosos que añaden confort y estilo al sofá.",
+          "precio": 19.99,
+          "imagen": "https://i.ibb.co/52wBmxt/image.png"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "avatar": "",
+      "imagen": "https://i.ibb.co/jH8KdTx/image.png",
+      "nombre": "PetParadise",
+      "descripción": "Tu tienda de mascotas favorita con todo lo necesario para tus amigos peludos.",
+      "categoría": "Mascotas",
+      "productos": [
+        {
+          "id": 1,
+          "nombre": "Collar y Correa para Perro",
+          "descripción": "Conjunto de collar y correa resistente y ajustable para paseos seguros.",
+          "precio": 24.99,
+          "imagen": "https://i.ibb.co/ZN8nCrJ/image.png"
+        },
+        {
+          "id": 2,
+          "nombre": "Cama para Gatos con Forma de Cueva",
+          "descripción": "Cama acogedora con diseño de cueva para que tu gato se sienta seguro.",
+          "precio": 39.99,
+          "imagen": "https://i.ibb.co/xsyzSD3/image.png"
+        },
+        {
+          "id": 3,
+          "nombre": "Juguete Interactivo para Perros",
+          "descripción": "Juguete que estimula la mente y el cuerpo de tu perro durante horas de diversión.",
+          "precio": 14.99,
+          "imagen": "https://i.ibb.co/5Yg9SQ7/image.png"
+        },
+        {
+          "id": 4,
+          "nombre": "Comedero Automático para Mascotas",
+          "descripción": "Comedero programable que dispensa comida automáticamente según la hora programada.",
+          "precio": 49.99,
+          "imagen": "https://i.ibb.co/XV5675M/image.png"
+        },
+        {
+          "id": 5,
+          "nombre": "Rascador para Gatos de Sisal",
+          "descripción": "Rascador resistente que ayuda a mantener las uñas de tu gato saludables.",
+          "precio": 29.99,
+          "imagen": "https://i.ibb.co/TW3RSxs/image.png"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "avatar": "",
+      "imagen": "https://i.ibb.co/S6vykgN/image.png",
+      "nombre": "GreenThumb",
+      "descripción": "Todo lo que necesitas para cultivar un jardín exuberante en casa.",
+      "categoría": "Jardinería",
+      "productos": [
+        {
+          "id": 1,
+          "nombre": "Kit de Semillas de Hierbas Aromáticas",
+          "descripción": "Kit completo para cultivar tus propias hierbas frescas en casa.",
+          "precio": 19.99,
+          "imagen": "https://i.ibb.co/H7XL3Y8/image.png"
+        },
+        {
+          "id": 2,
+          "nombre": "Macetas de Terracota",
+          "descripción": "Macetas clásicas de terracota ideales para plantas de interior y exterior.",
+          "precio": 9.99,
+          "imagen": "https://i.ibb.co/qJhvDg3/image.png"
+        },
+        {
+          "id": 3,
+          "nombre": "Herramientas de Jardinería de Acero Inoxidable",
+          "descripción": "Conjunto de herramientas duraderas para cuidar tu jardín con facilidad.",
+          "precio": 39.99,
+          "imagen": "https://i.ibb.co/Rc2H447/image.png"
+        },
+        {
+          "id": 4,
+          "nombre": "Abono Orgánico Nutritivo",
+          "descripción": "Abono natural que promueve el crecimiento saludable de las plantas.",
+          "precio": 14.99,
+          "imagen": "https://i.ibb.co/YpjwR1v/image.png"
+        },
+        {
+          "id": 5,
+          "nombre": "Manguera de Riego Extensible",
+          "descripción": "Manguera ligera y flexible que facilita el riego de tus plantas.",
+          "precio": 29.99,
+          "imagen": "https://i.ibb.co/jR548gG/image.png"
+        }
+      ]
+    }
+  ]
+}
