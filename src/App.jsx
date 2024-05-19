@@ -10,6 +10,7 @@ import HeaderHome from './HeaderHome';
 import EmployeeNavbar from './HeaderEmployee';
 import Login from './Login'; // Import the Login component
 import './style.css';
+import DashboardOrders from './vendor/DashboardOrders';
 
 
 const App = () => {
@@ -53,6 +54,7 @@ const EmployeeLayout = () => (
     <EmployeeNavbar />
     <Routes>
       <Route index element={<Dashboard />} />
+      <Route path='orders' element={<DashboardOrders />} />
       {/* You can add more employee routes here */}
     </Routes>
   </div>

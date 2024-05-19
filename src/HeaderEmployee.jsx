@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTachometerAlt, faUser, faCog, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faTachometerAlt, faUser, faCog, faBars, faTruck } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 const NavbarTheme = styled.nav`
@@ -78,6 +78,11 @@ const EmployeeNavbar = () => {
                 </StyledLink>
               </li>
               <li>
+                <StyledLink to="/dashboard/orders">
+                  <FontAwesomeIcon icon={faTruck} /> Pedidos
+                </StyledLink>
+              </li>
+              <li>
                 <StyledLink to="/profile">
                   <FontAwesomeIcon icon={faUser} /> Profile
                 </StyledLink>
@@ -99,6 +104,11 @@ const EmployeeNavbar = () => {
           <MobileMenuItem>
             <StyledLink to="/dashboard">
               <FontAwesomeIcon icon={faTachometerAlt} />
+            </StyledLink>
+          </MobileMenuItem>
+          <MobileMenuItem>
+            <StyledLink to="/dashboard/orders">
+              <FontAwesomeIcon icon={faTruck} />
             </StyledLink>
           </MobileMenuItem>
           <MobileMenuItem>
