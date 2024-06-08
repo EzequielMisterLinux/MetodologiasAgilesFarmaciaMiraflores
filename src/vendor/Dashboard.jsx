@@ -45,25 +45,27 @@ const Dashboard = () => {
     );
   };
 
-  const addProduct = () => {
-    fetchProducts();
+  const addProduct = async (product) => {
+    try {
+      const response = await axios.post('http://localhost:3001/api/products', product);
+      setProducts((prevProducts) => [...prevProducts, response.data]);
+    } catch (error) {
+      console.error('Error adding product:', error);
+    }
   };
-
-
 
   const updateProduct = async (id, updatedProduct) => {
     try {
-      await axios.update(`http://localhost:3001/api/products/${productId}`);
+      await axios.put(`http://localhost:3001/api/products/${id}`, updatedProduct);
       setProducts((prevProducts) =>
         prevProducts.map((product) =>
           product.id === id ? { ...product, ...updatedProduct } : product
         )
       );
     } catch (err) {
-      setError(err);
+      console.error('Error updating product:', err);
     }
   };
-
 
   const deleteProduct = async (productId) => {
     try {

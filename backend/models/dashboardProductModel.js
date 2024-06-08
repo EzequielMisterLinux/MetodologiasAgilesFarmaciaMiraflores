@@ -18,17 +18,40 @@ const createProduct = {
   }
 };
 
-const updateProductModel = (id, product) => {
+const getProductById = (id) => {
   return new Promise((resolve, reject) => {
-    connection.query('UPDATE Products SET ? WHERE id = ?', [product, id], (error, results) => {
-      if (error) {
-        reject(error);
-        return;
+    connection.query(
+      'SELECT * FROM Products WHERE id = ?',
+      [id],
+      (error, results) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve(results[0]);
       }
-      resolve(results);
-    });
+    );
   });
 };
+
+const updateProductModel = (id, product) => {
+  return new Promise((resolve, reject) => {
+    const { name, description, price, image } = product;
+
+    connection.query(
+      'UPDATE Products SET name = ?, description = ?, price = ?, image = ? WHERE id = ?',
+      [name, description, price, image, id],
+      (error, results) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve(results);
+      }
+    );
+  });
+};
+
 
 const removeProduct = (id) => {
   return new Promise((resolve, reject) => {
@@ -59,5 +82,6 @@ export {
     createProduct,
     updateProductModel,
     removeProduct,
-    retrieveProducts
+    retrieveProducts,
+    getProductById
 };

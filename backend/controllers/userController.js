@@ -6,9 +6,9 @@ import axios from 'axios';
 
 const UserController = {
   register: async (req, res) => {
-    const { email, username, fullName, address, password } = req.body;
+    const { email, username, fullName, address, phone, password } = req.body;
     try {
-      const result = await User.register(email, username, fullName, address, password);
+      const result = await User.register(email, username, fullName, address, phone, password);
       if (result === 'Registro exitoso') {
         res.status(200).json({ message: result });
       } else {

@@ -15,7 +15,9 @@ const CategoryForm = ({ addCategory, addSubcategory, categories }) => {
     }
 
     try {
+      console.log('Submitting category:', categoryName.trim());
       const response = await axios.post('http://localhost:3001/api/categories', { name: categoryName.trim() });
+      console.log('Category response:', response.data);
       addCategory(response.data);
       setCategoryName('');
     } catch (error) {
@@ -32,12 +34,14 @@ const CategoryForm = ({ addCategory, addSubcategory, categories }) => {
     }
 
     try {
+      console.log('Submitting subcategory:', subcategoryName.trim(), 'to category:', selectedCategory);
       const subcategoryData = {
         name: subcategoryName.trim(),
         categoryId: selectedCategory,
       };
 
       const response = await axios.post(`http://localhost:3001/api/categories/${selectedCategory}/subcategories`, subcategoryData);
+      console.log('Subcategory response:', response.data);
       addSubcategory(response.data, selectedCategory);
       setSubcategoryName('');
     } catch (error) {

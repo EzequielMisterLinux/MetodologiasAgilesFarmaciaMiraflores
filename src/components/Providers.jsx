@@ -34,7 +34,7 @@ const Providers = () => {
   return (
     <>
       <div className="md:container md:mx-auto mt-5">
-        <h1 className="mb-4 text-4xl font-extrabold text-center leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Elige tus productos con nuestros <span className="text-blue-600 dark:text-blue-500">proveedores</span></h1>
+        <h1 className="mb-4 text-4xl font-extrabold text-center leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Nuestros <span className="text-blue-600 dark:text-blue-500">proveedores</span></h1>
       </div>
 
       <section className="bg-gray-2 pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
@@ -51,9 +51,9 @@ const Providers = () => {
                     {store.descripción}
                   </p>
                   <Link to={`/productos/${store.id}`}>
-                    <button className="inline-block rounded-full border border-gray-3 bg-stone-200 px-7 py-2 text-base font-medium text-body-color transition hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-dark-6">
+                    {/* <button className="inline-block rounded-full border border-gray-3 bg-stone-200 px-7 py-2 text-base font-medium text-body-color transition hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-dark-6">
                       Ver productos
-                    </button>
+                    </button> */}
                   </Link>
                 </div>
               </div>

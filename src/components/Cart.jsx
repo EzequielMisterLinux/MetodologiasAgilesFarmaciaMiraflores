@@ -1,105 +1,87 @@
-import { useId } from "react";
-import { useCart } from "../vendor/hooks/useCart";
-import { CartIcon, ClearCartIcon } from "./Icons";
-import './carrito.css';
+// Cart.jsx
+import React, { useContext } from 'react';
+import { CartContext } from '../components/context/CartContext';
+import { CartIcon, ClearCartIcon } from './Icons';
 
-function CartItem({ thumbnail, title, price, quantity, addToCart, removeFromCart }) {
-    return(
-        <table className="border-spacing-2">
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Unit Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><img src={ thumbnail} alt="" /></td>
-                    <td>{ title }</td>
-                    <td>{ quantity } <button onClick={addToCart}>+</button></td>
-                    <td>{ price }</td>
-                </tr>
-            </tbody>
-        </table>
-    );
+function CartItem({ product, addToCart, removeFromCart }) {
+  return (
+    <div className="flex items-center justify-between p-4 border-b border-gray-300">
+      <div className="flex items-center">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-16 h-16 object-cover mr-4"
+        />
+        <div>
+          <h3 className="text-lg font-semibold">{product.name}</h3>
+          <p className="text-gray-600">${product.price}</p>
+        </div>
+      </div>
+      <div className="flex items-center">
+        <button
+          onClick={() => removeFromCart(product)}
+          className="bg-gray-200 hover:bg-gray-300 rounded-full p-2"
+        >
+          -
+        </button>
+        <span className="mx-2">{product.quantity}</span>
+        <button
+          onClick={() => addToCart(product)}
+          className="bg-gray-200 hover:bg-gray-300 rounded-full p-2"
+        >
+          +
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export function Cart() {
-    const cartCheckboxId = useId();
+  const { cart, clearCart, addToCart, removeFromCart } = useContext(CartContext);
+  const totalProducts = cart.reduce((total, product) => total + product.quantity, 0);
+  const totalAmount = cart.reduce((total, product) => total + product.price * product.quantity, 0);
 
-    const { cart, clearCart, addToCart } = useCart();
-    
-    const cantProductos = cart.reduce((total, product) => total + product.quantity, 0);
-    const totalPagar = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+  return (
+    <div className="bg-white overflow-y-auto">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-semibold">Cart</h2>
+        <button
+          onClick={clearCart}
+          className="flex items-center text-gray-600 hover:text-gray-800"
+        >
+          <ClearCartIcon className="w-5 h-5 mr-2" />
+          Clear Cart
+        </button>
+      </div>
+      <div className="space-y-4">
+        {cart.map((product) => (
+          <CartItem
+            key={product.id}
+            product={product}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}
+          />
+        ))}
+      </div>
+      <div className="mt-6 border-t border-gray-300 pt-4">
+        <div className="flex justify-between mb-2">
+          <span className="text-gray-600 font-semibold">Total Products: {totalProducts}</span>
+          
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-600 font-semibold">Total Amount: ${totalAmount.toFixed(2)}</span>
+          <button
+          onClick=''
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          
+          Comprar
+        </button>
+        </div>
+        
+        
 
-    return (
-        <>
-            <label className="cart-button" htmlFor={ cartCheckboxId }>
-                <CartIcon/>
-            </label> 
-            <input id={ cartCheckboxId } type="checkbox" hidden/>
-
-            <div className="carrito">
-                <ul>
-                    {
-                        cart.map( product => (
-                            <CartItem
-                                key={ product.id }
-                                addToCart={ () => addToCart(product) }
-                                { ...product }
-                            />
-                        ))
-                    }
-                </ul>
-                <div className="overflow-auto rounded-lg shadow">
-                    <table className="w-full">
-                        <thead className="bg-gray-50 border-b-2 border-gray-200">
-                            <tr>
-                                <th className="p-3 text-sm font-semibold tracking-wide text-left">Image</th>
-                                <th className="p-3 text-sm font-semibold tracking-wide text-left">Product Name</th>
-                                <th className="p-3 text-sm font-semibold tracking-wide text-left">Quantity</th>
-                                <th className="p-3 text-sm font-semibold tracking-wide text-left">Unit Price</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-100">
-                            <tr className="bg-white">
-                                <td className="p-3 text-sm text-gray-700 whitespace-nowrap"><img src="https://cdn.dummyjson.com/product-images/1/thumbnail.jpg" alt="" /></td>
-                                <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider">Iphone 9</span>
-                                </td>
-                                <td className="p-3 text-sm text-gray-700 whitespace-nowrap"><input type="number" value={2}/></td>
-                                <td className="p-3 text-sm text-gray-700 whitespace-nowrap">549</td>
-                            </tr>
-                            <tr className="bg-white">
-                                <td className="p-3 text-sm text-gray-700"><img src="https://cdn.dummyjson.com/product-images/2/thumbnail.jpg" alt="" /></td>
-                                <td className="p-3 text-sm text-gray-700">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider">Iphone X</span>
-                                </td>
-                                <td className="p-3 text-sm text-gray-700"><input type="number" value={1}/></td>
-                                <td className="p-3 text-sm text-gray-700">899</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                
-                <div className="totales">
-                    <p>Productos: {cantProductos}</p>
-                    <p>Total: ${totalPagar}</p>
-
-                    <button 
-                        style={{ backgroundColor: 'red' }}
-                        onClick={ clearCart }>
-                        <ClearCartIcon/>
-                    </button>
-                    <button
-                        style={{ backgroundColor: 'Skyblue'}}>
-                        <CartIcon/>
-                    </button>
-                </div>
-            </div>
-        </>
-    )
+      </div>
+    </div>
+  );
 }

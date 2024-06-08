@@ -35,8 +35,6 @@ const createSubCategoryModel = {
   }
 };
 
-
-
 const retrieveCategories = () => {
   return new Promise((resolve, reject) => {
     connection.query('SELECT * FROM Categories', (error, results) => {
@@ -51,7 +49,7 @@ const retrieveCategories = () => {
 
 const retrieveSubCategoriesByCategory = (categoryId) => {
   return new Promise((resolve, reject) => {
-    connection.query('SELECT * FROM SubCategories WHERE categoryId = ?', categoryId, (error, results) => {
+    connection.query('SELECT * FROM SubCategories WHERE categoryId = ?', [categoryId], (error, results) => {
       if (error) {
         reject(error);
         return;

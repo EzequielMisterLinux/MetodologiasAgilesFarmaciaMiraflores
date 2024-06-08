@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import '../index.css';
 import SearchFilter from '../components/SearchFilter';
@@ -7,6 +7,7 @@ import CategoryModal from '../components/CategoryModal';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faStore, faBars } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from '../components/context/CartContext';
 
 const MobileMenu = styled.nav`
   display: none;
@@ -48,6 +49,7 @@ const Store = () => {
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -69,16 +71,20 @@ const Store = () => {
   }, []);
 
   useEffect(() => {
-    let filtered = products.filter((product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    let filtered = products;
 
     if (selectedCategory) {
-      filtered = filtered.filter((product) => product.category === selectedCategory);
+      filtered = filtered.filter((product) => product.categoryId === selectedCategory);
     }
 
     if (selectedSubcategory) {
-      filtered = filtered.filter((product) => product.subcategory === selectedSubcategory);
+      filtered = filtered.filter((product) => product.subCategoryId === selectedSubcategory);
+    }
+
+    if (searchTerm) {
+      filtered = filtered.filter((product) =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
     }
 
     setFilteredProducts(filtered);
@@ -90,6 +96,7 @@ const Store = () => {
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
+    setSelectedSubcategory(null);  // Clear subcategory when a new category is selected
   };
 
   const handleSubcategorySelect = (subcategory) => {
@@ -126,7 +133,10 @@ const Store = () => {
                 <div className="p-4">
                   <h2 className="text-xl font-bold mb-2">{product.name}</h2>
                   <p className="text-gray-700 mb-4">${product.price}</p>
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => addToCart(product)}
+                  >
                     Agregar al Carrito
                   </button>
                 </div>
@@ -151,7 +161,7 @@ const Store = () => {
             </MobileMenuItem>
             <MobileMenuItem>
               <StyledLink to="#" onClick={handleCategoryModalToggle}>
-                <FontAwesomeIcon icon={faBars} onClick={handleCategoryModalToggle} />
+                <FontAwesomeIcon icon={faBars} />
               </StyledLink>
             </MobileMenuItem>
           </div>

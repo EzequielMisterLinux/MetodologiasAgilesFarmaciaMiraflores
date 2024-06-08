@@ -77,7 +77,7 @@ const ProductList = ({ updateProduct }) => {
               <tr key={product.id}>
                 <td className="px-6 py-4 whitespace-nowrap">{product.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{product.description}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{product.price}</td>
+                <td className="px-6 py-4 whitespace-nowrap">${product.price}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   {product.image && <img src={product.image} alt={product.name} className="max-h-16" />}
                 </td>

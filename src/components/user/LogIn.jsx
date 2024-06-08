@@ -16,7 +16,7 @@ const LoginForm = ({ onClose, onSwitchToRegister, onLogin, history }) => {
       const response = await axios.post('http://localhost:3001/authenticate', { email, password });
 
       if (response.data.message.includes('Usuario autenticado correctamente.')) {
-        const { userId, role } = response.data;
+        const { userId } = response.data;
         onLogin(userId);
 
         Swal.fire({
@@ -24,11 +24,7 @@ const LoginForm = ({ onClose, onSwitchToRegister, onLogin, history }) => {
           title: 'Inicio de sesión exitoso',
           text: '¡Bienvenido de nuevo!'
         }).then(() => {
-          if (role === 'vendedor') {
-            history.push('/dashboard-vendedor');
-          } else {
-            // Redirigir al home de la tienda para el cliente
-          }
+          
         });
       } else {
         Swal.fire({

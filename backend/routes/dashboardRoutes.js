@@ -22,14 +22,10 @@ router.get('/api/categories', getCategoriesController);
 router.post('/api/categories/:categoryId/subcategories', createSubCategoryController);
 router.get('/api/categories/:categoryId/subcategories', getSubCategoriesByCategoryController);
 
-
-
-//rutas para el producto
+// Rutas para el producto
 router.put('/api/products/:id', updateProduct);
 router.delete('/api/products/:id', deleteProduct);
 router.get('/api/products', getProducts);
 router.post('/api/products', insertProduct);
-router.get('/uploads', insertProduct);
 
 export default router;
-

@@ -88,7 +88,7 @@ const Navbar = () => {
   return (
     <>
       <NavbarTheme>
-        <h2 className="text-lg font-bold">Logo</h2>
+        <h2 className="text-lg font-bold">Farmacia Miraflores</h2>
         <NavbarLinks>
           <nav className="hidden md:block">
             <ul className="flex justify-center space-x-4">

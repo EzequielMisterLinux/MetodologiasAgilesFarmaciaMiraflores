@@ -1,4 +1,6 @@
+// UpdateProductModal.jsx
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const UpdateProductModal = ({ product, updateProduct, closeModal }) => {
   const [name, setName] = useState(product.name);
@@ -15,18 +17,34 @@ const UpdateProductModal = ({ product, updateProduct, closeModal }) => {
     }
   };
 
-  const handleUpdate = () => {
+  const handleUpdate = async () => {
     const updatedProduct = {
       ...product,
       name,
       description,
       price,
-      // Solo actualizar la imagen si se ha seleccionado una nueva
-      image: image ? URL.createObjectURL(image) : product.image,
     };
-    updateProduct(updatedProduct);
-    closeModal();
+  
+    try {
+      const formData = new FormData();
+      formData.append('name', updatedProduct.name);
+      formData.append('description', updatedProduct.description);
+      formData.append('price', updatedProduct.price);
+      
+      // Verificar si hay una nueva imagen antes de agregarla al formData
+      if (image) {
+        formData.append('image', image);
+      }
+  
+      await axios.put(`http://localhost:3001/api/products/${product.id}`, formData);
+      updateProduct(product.id, updatedProduct);
+      closeModal();
+    } catch (error) {
+      console.error('Error updating product:', error);
+      // Manejar el error
+    }
   };
+  
 
   return (
     <div className="fixed z-10 inset-0 overflow-y-auto">

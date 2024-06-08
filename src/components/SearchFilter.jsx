@@ -42,7 +42,7 @@ const SearchFilter = ({ searchTerm, handleSearchChange, handleCategorySelect, ha
   const handleCategoryChange = (categoryId) => {
     setSelectedCategory(categoryId);
     handleCategorySelect(categoryId);
-    // No need to clear the selected subcategory here
+    setSelectedSubCategory(''); // Clear selected subcategory when a new category is selected
   };
 
   const handleSubcategoryChange = (subcategoryId) => {

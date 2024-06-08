@@ -3,9 +3,9 @@ import connection from '../database/connection.js';
 import Swal from 'sweetalert2';
 
 const User = {
-  register: (email, username, fullName, address, password) => {
+  register: (email, username, fullName, address, phone, password) => {
     return new Promise((resolve, reject) => {
-      connection.query('CALL addusers(?, ?, ?, ?, ?, @result)', [email, username, fullName, address, password], (error, results) => {
+      connection.query('CALL addusers(?, ?, ?, ?, ?, ?, @result)', [email, username, fullName, address, phone, password], (error, results) => {
         if (error) {
           reject(error);
         } else {

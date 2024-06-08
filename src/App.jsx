@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
@@ -8,30 +7,31 @@ import Productos from './components/ProductsShops';
 import Dashboard from './vendor/Dashboard';
 import HeaderHome from './HeaderHome';
 import EmployeeNavbar from './HeaderEmployee';
-import Login from './Login'; // Import the Login component
+import Login from './Login';
 import './style.css';
 import DashboardOrders from './vendor/DashboardOrders';
-
+import { CartProvider } from './components/context/CartContext'; // Importa el CartProvider
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        {/* Client routes */}
-        <Route path="/" element={<ClientLayout />}>
-          <Route index element={<Home />} />
-          <Route path="store" element={<StoreC />} />
-          <Route path="providers" element={<Providers />} />
-          <Route path="productos/:storeId" element={<Productos />} />
-        </Route>
-        {/* Employee routes */}
-        <Route path="/dashboard/*" element={<ProtectedRoute />}>
-          
-          {/* You can add more employee routes here */}
-        </Route>
-        <Route path="/login" element={<Login />} /> {/* Login route */}
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Routes>
+          {/* Client routes */}
+          <Route path="/" element={<ClientLayout />}>
+            <Route index element={<Home />} />
+            <Route path="store" element={<StoreC />} />
+            <Route path="providers" element={<Providers />} />
+            <Route path="productos/:storeId" element={<Productos />} />
+          </Route>
+          {/* Employee routes */}
+          <Route path="/dashboard/*" element={<ProtectedRoute />}>
+            {/* You can add more employee routes here */}
+          </Route>
+          <Route path="/login" element={<Login />} /> {/* Login route */}
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 };
 

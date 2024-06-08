@@ -1,9 +1,9 @@
 import connection from '../database/connection.js';
 
-export const addUserModel = (email, username, fullName, address, password) => {
+export const addUserModel = (email, username, fullName, address, phone, password) => {
   return new Promise((resolve, reject) => {
-    const query = 'CALL addusers(?, ?, ?, ?, ?, @result); SELECT @result AS result;';
-    connection.query(query, [email, username, fullName, address, password], (err, results) => {
+    const query = 'CALL addusers(?, ?, ?, ?, ?, ?, @result); SELECT @result AS result;';
+    connection.query(query, [email, username, fullName, address, phone, password], (err, results) => {
       if (err) {
         return reject(err);
       }

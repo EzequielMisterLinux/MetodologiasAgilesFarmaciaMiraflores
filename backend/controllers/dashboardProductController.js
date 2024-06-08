@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs'; 
 import multer from 'multer';
 
-import { createProduct, updateProductModel, removeProduct, retrieveProducts } from '../models/dashboardProductModel.js';
+import { createProduct, updateProductModel, removeProduct, retrieveProducts, getProductById } from '../models/dashboardProductModel.js';
 
 
 const storage = multer.diskStorage({
@@ -47,15 +47,33 @@ const insertProduct = [
 ];
 
 
-const updateProduct = async (req, res) => {
-  try {
-    await updateProductModel(req.params.id, req.body);
-    res.json({ message: 'Product updated successfully' });
-  } catch (error) {
-    console.error('Error updating product:', error);
-    res.status(500).json({ error: 'Error updating product' });
+
+const updateProduct = [
+  upload.single('image'),
+  async (req, res) => {
+    try {
+      const { name, description, price } = req.body;
+      const image = req.file ? req.file.path : null;
+
+      // Get the current product to keep the old image if no new image is provided
+      const currentProduct = await getProductById(req.params.id);
+
+      const productData = { 
+        name, 
+        description, 
+        price, 
+        image: image || currentProduct.image  // Keep the old image if no new one is provided
+      };
+
+      await updateProductModel(req.params.id, productData);
+      res.json({ message: 'Product updated successfully' });
+    } catch (error) {
+      console.error('Error updating product:', error);
+      res.status(500).json({ error: 'Error updating product' });
+    }
   }
-};
+];
+
 
 const deleteProduct = async (req, res) => {
   try {
